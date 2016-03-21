@@ -34,6 +34,11 @@ public class Main {
 		System.out.println("\nchecking...\n====================");
 		List<Path> foundFiles = null;
 		Path path = Paths.get(inputpath);
+		if(path.toFile().exists()==false)
+		{
+			System.out.println("Path is wrong!");
+			System.exit(0);
+		}
 		FileVisitor visitor = new FileVisitor(normSize);
 		try {
 			Files.walkFileTree(path, visitor);
